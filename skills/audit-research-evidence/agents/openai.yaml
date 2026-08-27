@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit Research Evidence"
+  short_description: "Extract bounded claims from traceable primary sources"
+  default_prompt: "Use $audit-research-evidence to verify what these sources support and where their limits lie."

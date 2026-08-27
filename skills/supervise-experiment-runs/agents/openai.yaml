@@ -1,0 +1,4 @@
+interface:
+  display_name: "Supervise Experiment Runs"
+  short_description: "Supervise local or SSH runs and verify raw results"
+  default_prompt: "Use $supervise-experiment-runs to supervise this local or SSH run and collect a byte-verified raw result bundle."

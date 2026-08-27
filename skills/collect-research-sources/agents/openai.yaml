@@ -1,0 +1,4 @@
+interface:
+  display_name: "Collect Research Sources"
+  short_description: "Collect and resume traceable multi-source candidates"
+  default_prompt: "Use $collect-research-sources to run or resume a bounded multi-source collection campaign and export a traceable candidate inventory."

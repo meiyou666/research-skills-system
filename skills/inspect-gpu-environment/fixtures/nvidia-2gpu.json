@@ -1,0 +1,88 @@
+{
+  "fixture_schema": "gpu-environment-command-fixture/1.0",
+  "metadata": {
+    "name": "two-nvidia-a100"
+  },
+  "which": {
+    "df": "/usr/bin/df",
+    "ldconfig": "/usr/sbin/ldconfig",
+    "lscpu": "/usr/bin/lscpu",
+    "nvcc": "/opt/cuda/bin/nvcc",
+    "nvidia-container-cli": "/usr/bin/nvidia-container-cli",
+    "nvidia-smi": "/usr/bin/nvidia-smi"
+  },
+  "commands": {
+    "uname": {
+      "returncode": 0,
+      "stdout": "Linux 6.8.0 x86_64 GNU/Linux\n"
+    },
+    "lscpu": {
+      "returncode": 0,
+      "stdout": "{\"lscpu\":[{\"field\":\"Architecture:\",\"data\":\"x86_64\"},{\"field\":\"CPU(s):\",\"data\":\"64\"},{\"field\":\"Model name:\",\"data\":\"Fixture Dual Socket CPU\"},{\"field\":\"Thread(s) per core:\",\"data\":\"2\"},{\"field\":\"Core(s) per socket:\",\"data\":\"16\"},{\"field\":\"Socket(s):\",\"data\":\"2\"},{\"field\":\"NUMA node(s):\",\"data\":\"2\"}]}\n"
+    },
+    "df_storage": {
+      "returncode": 0,
+      "stdout": "Type 1B-blocks Used Available\nxfs 2000000000000 500000000000 1500000000000\n"
+    },
+    "ldconfig": {
+      "returncode": 0,
+      "stdout": "libcuda.so.1 (libc6,x86-64) => /usr/lib/libcuda.so.1\nlibcudart.so.12 (libc6,x86-64) => /opt/cuda/lib64/libcudart.so.12\n"
+    },
+    "nvidia_smi_query_full": {
+      "returncode": 0,
+      "stdout": "0, GPU-aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa, NVIDIA A100-SXM4-80GB, 00000000:01:00.0, 550.54.15, 81920, 1024, 80896, 12, 3, 42, 85.5, 400.0, 1410, 1215, 0, 0, Disabled\n1, GPU-bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb, NVIDIA A100-SXM4-80GB, 00000000:81:00.0, 550.54.15, 81920, 2048, 79872, 24, 6, 47, 112.0, 400.0, 1395, 1215, 1, 0, Enabled\n"
+    },
+    "nvidia_smi_query_pcie": {
+      "returncode": 0,
+      "stdout": "0, 4, 4, 16, 16\n1, 4, 4, 16, 16\n"
+    },
+    "nvidia_smi_topology": {
+      "returncode": 0,
+      "stdout": "        GPU0    GPU1    CPU Affinity    NUMA Affinity\nGPU0     X      NV4     0-31            0\nGPU1    NV4      X      32-63           1\nLegend:\n  X = Self\n  NV# = Number of bonded NVLinks\n"
+    },
+    "nvidia_smi_nvlink": {
+      "returncode": 0,
+      "stdout": "GPU 0: NVIDIA A100-SXM4-80GB\n  Link 0: 25.000 GB/s\nGPU 1: NVIDIA A100-SXM4-80GB\n  Link 0: 25.000 GB/s\n"
+    },
+    "nvidia_smi_list": {
+      "returncode": 0,
+      "stdout": "GPU 0: NVIDIA A100-SXM4-80GB (UUID: GPU-aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa)\nGPU 1: NVIDIA A100-SXM4-80GB (UUID: GPU-bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb)\n  MIG 3g.40gb Device 0: (UUID: MIG-cccccccc-cccc-cccc-cccc-cccccccccccc)\n"
+    },
+    "nvidia_smi_summary": {
+      "returncode": 0,
+      "stdout": "NVIDIA-SMI 550.54.15 Driver Version: 550.54.15 CUDA Version: 12.4\n"
+    },
+    "nvcc_version": {
+      "returncode": 0,
+      "stdout": "Cuda compilation tools, release 12.4, V12.4.99\n"
+    },
+    "nvidia_container_cli_version": {
+      "returncode": 0,
+      "stdout": "cli-version: 1.16.1\nlib-version: 1.16.1\n"
+    }
+  },
+  "files": {
+    "/etc/os-release": "ID=fixturelinux\nVERSION_ID=2\n",
+    "/proc/1/cgroup": "0::/system.slice\n",
+    "/proc/meminfo": "MemTotal:       536870912 kB\nMemAvailable:   402653184 kB\nSwapTotal:             0 kB\n",
+    "/sys/devices/system/node/online": "0-1\n",
+    "/sys/fs/cgroup/cpu.max": "max 100000\n",
+    "/sys/fs/cgroup/memory.max": "max\n",
+    "/sys/module/nvidia/version": "550.54.15\n"
+  },
+  "paths": {},
+  "globs": {
+    "/dev/dri/renderD*": []
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0,1",
+    "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
+    "NVIDIA_VISIBLE_DEVICES": "all"
+  },
+  "packages": {
+    "torch": "2.5.1"
+  },
+  "python": {
+    "version": "3.11.9"
+  }
+}

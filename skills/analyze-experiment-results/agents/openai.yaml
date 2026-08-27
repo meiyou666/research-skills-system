@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyze Experiment Results"
+  short_description: "Derive traceable metrics and bounded findings"
+  default_prompt: "Use $analyze-experiment-results to turn these traceable measurements into derived tables, statistics, and bounded findings."

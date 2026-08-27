@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "campaign_id": "example-campaign",
+  "queries": [
+    {
+      "id": "q-primary",
+      "text": "replace with the research query",
+      "language": "und"
+    }
+  ],
+  "connectors": [
+    {
+      "id": "crossref-main",
+      "type": "crossref",
+      "enabled": true,
+      "options": {}
+    }
+  ],
+  "limits": {
+    "concurrency": 2,
+    "max_pages_per_task": 1,
+    "max_items_per_page": 20,
+    "max_candidates": 100,
+    "max_total_bytes": 5000000,
+    "package_stop_watermark_bytes": 100000000,
+    "max_response_bytes": 2000000,
+    "max_wall_seconds": 3600,
+    "timeout_seconds": 20,
+    "max_retries": 2,
+    "backoff_seconds": 1.0,
+    "max_depth": 0
+  },
+  "fetch_policy": {
+    "allowed_hosts": [],
+    "allowed_mime_types": [
+      "text/html",
+      "text/plain",
+      "application/json",
+      "application/xml",
+      "text/xml",
+      "application/atom+xml",
+      "application/rss+xml"
+    ],
+    "allow_private_hosts": false,
+    "robots_unavailable": "deny",
+    "retain_content": false
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Search Primary Evidence"
+  short_description: "Find primary evidence with explicit coverage limits"
+  default_prompt: "Use $search-primary-evidence to find and scope primary sources for this question."

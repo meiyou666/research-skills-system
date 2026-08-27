@@ -1,0 +1,74 @@
+{
+  "fixture_schema": "gpu-environment-command-fixture/1.0",
+  "metadata": {
+    "name": "nvidia-missing-telemetry"
+  },
+  "which": {
+    "df": "/usr/bin/df",
+    "ldconfig": "/usr/sbin/ldconfig",
+    "lscpu": "/usr/bin/lscpu",
+    "nvidia-smi": "/usr/bin/nvidia-smi"
+  },
+  "commands": {
+    "uname": {
+      "returncode": 0,
+      "stdout": "Linux 6.1.0 x86_64 GNU/Linux\n"
+    },
+    "lscpu": {
+      "returncode": 0,
+      "stdout": "{\"lscpu\":[{\"field\":\"Architecture:\",\"data\":\"x86_64\"},{\"field\":\"CPU(s):\",\"data\":\"16\"},{\"field\":\"Model name:\",\"data\":\"Fixture CPU\"},{\"field\":\"Thread(s) per core:\",\"data\":\"2\"},{\"field\":\"Core(s) per socket:\",\"data\":\"8\"},{\"field\":\"Socket(s):\",\"data\":\"1\"},{\"field\":\"NUMA node(s):\",\"data\":\"1\"}]}\n"
+    },
+    "df_storage": {
+      "returncode": 0,
+      "stdout": "Type 1B-blocks Used Available\next4 500000000000 200000000000 300000000000\n"
+    },
+    "ldconfig": {
+      "returncode": 0,
+      "stdout": "libcuda.so.1 (libc6,x86-64) => /usr/lib/libcuda.so.1\n"
+    },
+    "nvidia_smi_query_full": {
+      "returncode": 0,
+      "stdout": "0, GPU-dddddddd-dddd-dddd-dddd-dddddddddddd, NVIDIA T4, 00000000:02:00.0, 535.104.05, 15360, N/A, N/A, N/A, N/A, N/A, N/A, 70.0, N/A, N/A, N/A, N/A, N/A\n"
+    },
+    "nvidia_smi_query_pcie": {
+      "returncode": 0,
+      "stdout": "0, N/A, 3, N/A, 16\n"
+    },
+    "nvidia_smi_topology": {
+      "returncode": 0,
+      "stdout": "        GPU0    CPU Affinity    NUMA Affinity\nGPU0     X      0-15            0\n"
+    },
+    "nvidia_smi_nvlink": {
+      "returncode": 3,
+      "stdout": ""
+    },
+    "nvidia_smi_list": {
+      "returncode": 0,
+      "stdout": "GPU 0: NVIDIA T4 (UUID: GPU-dddddddd-dddd-dddd-dddd-dddddddddddd)\n"
+    },
+    "nvidia_smi_summary": {
+      "returncode": 0,
+      "stdout": "NVIDIA-SMI 535.104.05 Driver Version: 535.104.05 CUDA Version: 12.2\n"
+    }
+  },
+  "files": {
+    "/etc/os-release": "ID=fixturelinux\nVERSION_ID=3\n",
+    "/proc/1/cgroup": "0::/system.slice\n",
+    "/proc/meminfo": "MemTotal:       33554432 kB\nMemAvailable:   16777216 kB\nSwapTotal:             0 kB\n",
+    "/sys/devices/system/node/online": "0\n",
+    "/sys/fs/cgroup/cpu.max": "max 100000\n",
+    "/sys/fs/cgroup/memory.max": "max\n",
+    "/sys/module/nvidia/version": "535.104.05\n"
+  },
+  "paths": {},
+  "globs": {
+    "/dev/dri/renderD*": []
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0"
+  },
+  "packages": {},
+  "python": {
+    "version": "3.11.9"
+  }
+}

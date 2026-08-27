@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inspect GPU Environment"
+  short_description: "Capture read-only GPU capability and environment evidence"
+  default_prompt: "Use $inspect-gpu-environment to capture a read-only GPU environment attestation for this local or SSH host."

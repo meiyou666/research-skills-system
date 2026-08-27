@@ -1,0 +1,4 @@
+interface:
+  display_name: "Formulate Research Hypotheses"
+  short_description: "Shape evidence into bounded falsifiable hypotheses"
+  default_prompt: "Use $formulate-research-hypotheses to shape these materials into bounded questions and falsifiable hypotheses."

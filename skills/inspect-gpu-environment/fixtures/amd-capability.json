@@ -1,0 +1,89 @@
+{
+  "fixture_schema": "gpu-environment-command-fixture/1.0",
+  "metadata": {
+    "name": "amd-capability-unverified"
+  },
+  "which": {
+    "amd-smi": "/opt/rocm/bin/amd-smi",
+    "df": "/usr/bin/df",
+    "hipcc": "/opt/rocm/bin/hipcc",
+    "hipconfig": "/opt/rocm/bin/hipconfig",
+    "ldconfig": "/usr/sbin/ldconfig",
+    "lscpu": "/usr/bin/lscpu",
+    "rocminfo": "/opt/rocm/bin/rocminfo"
+  },
+  "commands": {
+    "uname": {
+      "returncode": 0,
+      "stdout": "Linux 6.8.0 x86_64 GNU/Linux\n"
+    },
+    "lscpu": {
+      "returncode": 0,
+      "stdout": "{\"lscpu\":[{\"field\":\"Architecture:\",\"data\":\"x86_64\"},{\"field\":\"CPU(s):\",\"data\":\"128\"},{\"field\":\"Model name:\",\"data\":\"Fixture AMD EPYC\"},{\"field\":\"Thread(s) per core:\",\"data\":\"2\"},{\"field\":\"Core(s) per socket:\",\"data\":\"32\"},{\"field\":\"Socket(s):\",\"data\":\"2\"},{\"field\":\"NUMA node(s):\",\"data\":\"4\"}]}\n"
+    },
+    "df_storage": {
+      "returncode": 0,
+      "stdout": "Type 1B-blocks Used Available\nxfs 4000000000000 1000000000000 3000000000000\n"
+    },
+    "ldconfig": {
+      "returncode": 0,
+      "stdout": "libamdhip64.so.6 (libc6,x86-64) => /opt/rocm/lib/libamdhip64.so.6\n"
+    },
+    "amd_smi_version": {
+      "returncode": 0,
+      "stdout": "AMD SMI Tool: 26.2.2\nROCm version: 7.2.1\n"
+    },
+    "amd_smi_list": {
+      "returncode": 0,
+      "stdout": "{\"gpu\":[{\"gpu\":0,\"uuid\":\"GPU-AMD-0000\",\"bdf\":\"0000:41:00.0\"},{\"gpu\":1,\"uuid\":\"GPU-AMD-0001\",\"bdf\":\"0000:42:00.0\"}]}\n"
+    },
+    "amd_smi_static": {
+      "returncode": 0,
+      "stdout": "{\"gpu\":[{\"gpu\":0,\"asic\":{\"market_name\":\"AMD Instinct MI300X\"},\"vram\":{\"size_mb\":196608}},{\"gpu\":1,\"asic\":{\"market_name\":\"AMD Instinct MI300X\"},\"vram\":{\"size_mb\":196608}}]}\n"
+    },
+    "amd_smi_metric": {
+      "returncode": 0,
+      "stdout": "{\"gpu\":[{\"gpu\":0,\"temperature\":42,\"power\":130,\"utilization\":8},{\"gpu\":1,\"temperature\":44,\"power\":145,\"utilization\":11}]}\n"
+    },
+    "rocminfo": {
+      "returncode": 0,
+      "stdout": "Agent 2\n  Name:                    gfx942\n  Marketing Name:          AMD Instinct MI300X\n  Vendor Name:             AMD\n  Device Type:             GPU\nAgent 3\n  Name:                    gfx942\n  Marketing Name:          AMD Instinct MI300X\n  Vendor Name:             AMD\n  Device Type:             GPU\n"
+    },
+    "hipcc_version": {
+      "returncode": 0,
+      "stdout": "HIP version: 7.2.1\n"
+    },
+    "hipconfig_version": {
+      "returncode": 0,
+      "stdout": "HIP version: 7.2.1\n"
+    }
+  },
+  "files": {
+    "/etc/os-release": "ID=fixturelinux\nVERSION_ID=4\n",
+    "/proc/1/cgroup": "0::/system.slice\n",
+    "/proc/meminfo": "MemTotal:       1073741824 kB\nMemAvailable:    805306368 kB\nSwapTotal:               0 kB\n",
+    "/sys/devices/system/node/online": "0-3\n",
+    "/sys/fs/cgroup/cpu.max": "max 100000\n",
+    "/sys/fs/cgroup/memory.max": "max\n"
+  },
+  "paths": {
+    "/dev/kfd": true,
+    "/sys/module/amdgpu": true
+  },
+  "globs": {
+    "/dev/dri/renderD*": [
+      "/dev/dri/renderD128",
+      "/dev/dri/renderD129"
+    ]
+  },
+  "environment": {
+    "HIP_VISIBLE_DEVICES": "0,1",
+    "ROCR_VISIBLE_DEVICES": "0,1"
+  },
+  "packages": {
+    "torch": "2.5.1+rocm7.2"
+  },
+  "python": {
+    "version": "3.11.9"
+  }
+}

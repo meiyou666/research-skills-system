@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-08-27",
+  "profiles": [
+    {
+      "type": "crossref",
+      "implementation": "bundled-standard-library",
+      "role": "scholarly metadata discovery and DOI relations",
+      "runtime_dependencies": ["Python 3 standard library", "HTTPS access"],
+      "startup_or_health_check": "bounded GET to https://api.crossref.org/works",
+      "authentication": "none; optional contact_env selects the polite pool without storing the email; paid token is not implemented",
+      "supported_features": ["query", "cursor paging", "DOI identity", "relation metadata"],
+      "license_or_terms": "Crossref metadata is generally reusable; abstracts may be copyrighted; follow REST API etiquette and response limits",
+      "test_status": "offline parser path covered by campaign fixtures; 2026-08-27 online attempt reached terminal TLS failure in this environment",
+      "degradation": "task-local failure; other connectors continue"
+    },
+    {
+      "type": "openalex",
+      "implementation": "bundled-standard-library",
+      "role": "scholarly graph and multilingual metadata discovery",
+      "runtime_dependencies": ["Python 3 standard library", "HTTPS access"],
+      "startup_or_health_check": "bounded GET to https://api.openalex.org/works",
+      "authentication": "small trial access may work without a key; scalable use names a caller-controlled API-key environment variable sent as a bearer header",
+      "supported_features": ["query", "cursor paging", "DOI identity", "references", "related works", "CC0 metadata"],
+      "license_or_terms": "OpenAlex data is CC0; API budgets, pricing, and rate headers still apply",
+      "test_status": "offline normalized-record path covered; 2026-08-27 online attempt reached terminal connection reset in this environment",
+      "degradation": "task-local failure; other connectors continue"
+    },
+    {
+      "type": "arxiv",
+      "implementation": "bundled-standard-library",
+      "role": "arXiv descriptive metadata and version discovery",
+      "runtime_dependencies": ["Python 3 standard library", "HTTPS access"],
+      "startup_or_health_check": "bounded Atom query to https://export.arxiv.org/api/query",
+      "authentication": "none",
+      "supported_features": ["query", "offset paging", "arXiv version identity", "Atom metadata"],
+      "license_or_terms": "descriptive metadata is CC0; e-print redistribution depends on each work; one request per three seconds and one connection",
+      "test_status": "Atom parser and version clustering covered offline; live endpoint not exercised",
+      "degradation": "task-local failure; other connectors continue"
+    },
+    {
+      "type": "europe-pmc",
+      "implementation": "bundled-standard-library",
+      "role": "life-science metadata, identifiers, and open-access locators",
+      "runtime_dependencies": ["Python 3 standard library", "HTTPS access"],
+      "startup_or_health_check": "bounded GET to the Europe PMC REST search endpoint",
+      "authentication": "none; optional contact_env; the value is not stored in campaign state",
+      "supported_features": ["query", "cursor paging", "DOI/PMID/PMCID identity", "open-access indicator"],
+      "license_or_terms": "metadata and content do not share one blanket reuse license; full text follows per-article licenses and Europe PMC terms",
+      "test_status": "offline normalized-record path covered; live endpoint not exercised",
+      "degradation": "task-local failure; abstract retention is opt-in"
+    },
+    {
+      "type": "pubmed",
+      "implementation": "bundled-standard-library",
+      "role": "biomedical publication discovery through NCBI E-utilities",
+      "runtime_dependencies": ["Python 3 standard library", "HTTPS access"],
+      "startup_or_health_check": "bounded ESearch followed by ESummary",
+      "authentication": "bundled path is unauthenticated at up to three requests per second; optional contact_env is supported, API keys are not",
+      "supported_features": ["query", "offset paging", "PMID and DOI identity", "summary metadata"],
+      "license_or_terms": "show NCBI disclaimer/copyright notice; abstracts may be copyrighted; include tool/email and follow request limits",
+      "test_status": "offline normalized-record path covered; live endpoint not exercised",
+      "degradation": "task-local failure; abstracts are not collected"
+    },
+    {
+      "type": "rss",
+      "implementation": "bundled-standard-library",
+      "role": "incremental RSS or Atom discovery from caller-selected feeds",
+      "runtime_dependencies": ["Python 3 standard library", "HTTPS access"],
+      "startup_or_health_check": "bounded retrieval and XML parse of the configured feed URL",
+      "authentication": "public feeds by default; no cookie or interactive-login flow",
+      "supported_features": ["RSS", "Atom", "GUID identity", "incremental refresh", "optional query filter"],
+      "license_or_terms": "feed and linked-content terms are source-specific; summary retention is opt-in",
+      "test_status": "offline Atom parser, no-summary default, dedupe, and refresh paths passed",
+      "degradation": "task-local failure; existing observations remain available"
+    },
+    {
+      "type": "searxng",
+      "implementation": "bundled-client-for-external-service",
+      "role": "optional self-hosted metasearch discovery fan-out",
+      "runtime_dependencies": ["Python 3 standard library", "caller-operated SearXNG JSON API"],
+      "startup_or_health_check": "bounded JSON search request; caller separately owns service health",
+      "authentication": "endpoint-specific; bundled connector does not implement cookies or login",
+      "supported_features": ["query", "language", "categories", "result paging", "engine provenance"],
+      "license_or_terms": "SearXNG is AGPL-3.0-or-later; underlying engine terms and enabled output formats still apply",
+      "test_status": "client parsing and failure isolation covered through offline fixtures; no SearXNG service exercised",
+      "degradation": "task-local failure; structured-source connectors continue"
+    },
+    {
+      "type": "github-gh",
+      "implementation": "bundled-adapter-for-external-cli",
+      "role": "GitHub repository, code, issue/PR, commit, and release discovery",
+      "runtime_dependencies": ["gh CLI", "GitHub API access"],
+      "startup_or_health_check": "gh --version followed by a bounded gh api request",
+      "authentication": "existing gh state or caller-controlled credential environment variable; adapter never logs in",
+      "supported_features": ["repository search", "code search", "issue and PR search", "commit search", "release listing"],
+      "license_or_terms": "gh is MIT; GitHub API terms, repository licenses, privacy, and rate limits apply",
+      "test_status": "argument construction, normalized records, byte cap, and missing-executable failure are covered offline; live authenticated API not exercised",
+      "degradation": "task-local failure; no interactive authentication is attempted"
+    },
+    {
+      "type": "web-seed",
+      "implementation": "bundled-standard-library",
+      "role": "normalize caller-supplied public locators before optional fetch",
+      "runtime_dependencies": ["Python 3 standard library"],
+      "startup_or_health_check": "none until --fetch-pages is explicitly enabled",
+      "authentication": "none",
+      "supported_features": ["seed normalization", "bounded paging", "provenance"],
+      "license_or_terms": "target-specific; generic fetch requires explicit hosts and robots/retention review",
+      "test_status": "offline normalization and malicious-URL rejection passed",
+      "degradation": "unsafe locators remain non-fetchable records or produce task-local failures"
+    },
+    {
+      "type": "fixture",
+      "implementation": "bundled-test-only",
+      "role": "hermetic connector and campaign testing",
+      "runtime_dependencies": ["Python 3 standard library"],
+      "startup_or_health_check": "requires test_only=true",
+      "authentication": "none",
+      "supported_features": ["paged records", "controlled failure", "mixed language", "untrusted text"],
+      "license_or_terms": "repository-owned fixtures only",
+      "test_status": "offline acceptance baseline",
+      "degradation": "refuses to run unless explicitly marked test-only"
+    }
+  ]
+}

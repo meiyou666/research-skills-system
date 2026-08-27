@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Research Experiments"
+  short_description: "Draft proportionate experiments and handoff contracts"
+  default_prompt: "Use $design-research-experiments to draft a proportionate experiment and any needed handoff contracts."

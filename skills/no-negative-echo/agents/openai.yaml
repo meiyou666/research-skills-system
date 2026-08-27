@@ -1,0 +1,4 @@
+interface:
+  display_name: "No Negative Echo"
+  short_description: "Finalize artifacts from the accepted result state"
+  default_prompt: "Use $no-negative-echo to finalize these artifacts and their handoff from the accepted result."

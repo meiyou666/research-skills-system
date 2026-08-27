@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Publication Figures"
+  short_description: "Render reproducible figures from structured data"
+  default_prompt: "Use $create-publication-figures to render a reproducible figure package from this data and figure specification."

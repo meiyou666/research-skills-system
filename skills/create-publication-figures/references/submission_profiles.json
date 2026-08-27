@@ -1,0 +1,284 @@
+{
+  "schema_version": "1.0",
+  "profile_kind": "project_submission_profiles",
+  "verified_on": "2026-08-27",
+  "disclaimer": "These are project-owned submission profiles derived only from cited official author guidance. They are not official publisher brand templates and do not guarantee acceptance. Recheck the exact journal, conference, article type, and production stage before submission.",
+  "profiles": {
+    "draft": {
+      "display_name": "Portable draft",
+      "scope": "General reproducible drafting; not venue-specific.",
+      "conflict_status": "No venue rules are claimed.",
+      "sources": [],
+      "default_size": "single",
+      "size_presets": {
+        "single": {
+          "width_mm": 89.0,
+          "height_mm": 60.0,
+          "basis": "Project default"
+        },
+        "double": {
+          "width_mm": 178.0,
+          "height_mm": 105.0,
+          "basis": "Project default"
+        }
+      },
+      "max_height_mm": null,
+      "font": {
+        "preferred": ["DejaVu Sans"],
+        "fallback": "DejaVu Sans",
+        "default_size_pt": 8.0,
+        "min_size_pt": 6.0,
+        "max_size_pt": 12.0,
+        "range_is_official": false
+      },
+      "png_dpi": 300,
+      "line_art_dpi": 300,
+      "dpi_is_official_minimum": false,
+      "color_space": "RGB",
+      "submission_formats": ["PDF", "SVG", "PNG"],
+      "variable_items": ["Target venue constraints"]
+    },
+    "nature-portfolio": {
+      "display_name": "Nature Portfolio submission profile",
+      "scope": "Nature primary research figures. Other Nature Portfolio journals and initial versus final submission can differ; consult the selected journal.",
+      "conflict_status": "The flagship Nature pages vary by submission stage and artwork type, including raster-resolution wording. Vector outputs are primary for plots; recheck the requested production format.",
+      "sources": [
+        {
+          "title": "How to write your paper | Nature Portfolio",
+          "url": "https://www.nature.com/nature-portfolio/for-authors/write",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "Initial submission | Nature",
+          "url": "https://www.nature.com/nature/for-authors/initial-submission",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "Final submission | Nature",
+          "url": "https://www.nature.com/nature/for-authors/final-submission",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "Building and exporting figure panels | Nature research figure guide",
+          "url": "https://research-figure-guide.nature.com/figures/building-and-exporting-figure-panels/",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "Preparing figures to our specifications | Nature research figure guide",
+          "url": "https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/",
+          "verified_on": "2026-08-27"
+        }
+      ],
+      "default_size": "single",
+      "size_presets": {
+        "single": {
+          "width_mm": 89.0,
+          "height_mm": 70.0,
+          "basis": "Official width; project default height"
+        },
+        "one-and-half": {
+          "width_mm": 136.0,
+          "height_mm": 95.0,
+          "basis": "Official width option; project default height"
+        },
+        "double": {
+          "width_mm": 183.0,
+          "height_mm": 120.0,
+          "basis": "Official width; project default height"
+        }
+      },
+      "max_height_mm": 170.0,
+      "font": {
+        "preferred": ["Arial", "Helvetica"],
+        "fallback": "DejaVu Sans",
+        "default_size_pt": 7.0,
+        "min_size_pt": 5.0,
+        "max_size_pt": 7.0,
+        "range_is_official": true
+      },
+      "png_dpi": 300,
+      "line_art_dpi": 300,
+      "dpi_is_official_minimum": false,
+      "color_space": "RGB",
+      "submission_formats": ["AI", "EPS", "PDF", "PS", "SVG", "PSD", "TIFF", "PNG", "JPEG"],
+      "variable_items": [
+        "Nature Portfolio journal and article type",
+        "Initial versus final-production file requirements",
+        "Production resizing and final font choice",
+        "Whether editable layers are required for the selected artwork type"
+      ]
+    },
+    "science-aaas": {
+      "display_name": "Science/AAAS submission profile",
+      "scope": "Flagship Science manuscript figures. This does not cover Science Partner Journals or every Science family title.",
+      "conflict_status": "Current flagship pages returned HTTP 403 to automated retrieval. Numeric canvas, font, and DPI values below are project working defaults, not asserted current Science rules.",
+      "sources": [
+        {
+          "title": "Instructions for preparing an initial manuscript | Science",
+          "url": "https://www.science.org/content/page/instructions-preparing-initial-manuscript",
+          "verified_on": "2026-08-27",
+          "verification_note": "Official page was discoverable but returned HTTP 403 to automated retrieval; recheck interactively before submission."
+        },
+        {
+          "title": "Instructions for authors of revised research articles | Science",
+          "url": "https://www.science.org/content/page/instructions-authors-revised-research-articles",
+          "verified_on": "2026-08-27",
+          "verification_note": "Official page was discoverable but returned HTTP 403 to automated retrieval; recheck interactively before submission."
+        }
+      ],
+      "default_size": "two-column",
+      "size_presets": {
+        "one-column": {
+          "width_mm": 55.0,
+          "height_mm": 65.0,
+          "basis": "Project working default; current official page could not be retrieved automatically"
+        },
+        "two-column": {
+          "width_mm": 120.0,
+          "height_mm": 80.0,
+          "basis": "Project working default; current official page could not be retrieved automatically"
+        },
+        "page": {
+          "width_mm": 175.0,
+          "height_mm": 110.0,
+          "basis": "Project submission default; verify against current article layout"
+        }
+      },
+      "max_height_mm": null,
+      "font": {
+        "preferred": ["Arial", "Helvetica"],
+        "fallback": "DejaVu Sans",
+        "default_size_pt": 7.0,
+        "min_size_pt": 6.0,
+        "max_size_pt": 9.0,
+        "range_is_official": false
+      },
+      "png_dpi": 300,
+      "line_art_dpi": 300,
+      "dpi_is_official_minimum": false,
+      "color_space": "RGB",
+      "submission_formats": ["PDF", "EPS", "TIFF"],
+      "variable_items": [
+        "Initial versus revised manuscript requirements",
+        "Current column widths, resolution thresholds, and accepted formats",
+        "Science family journal",
+        "Production-requested editable source format"
+      ]
+    },
+    "ieee": {
+      "display_name": "IEEE submission profile",
+      "scope": "General IEEE journal article graphics. A specific journal, magazine, conference, or Proceedings of the IEEE may use different dimensions.",
+      "conflict_status": "General IEEE Author Center rules are mechanically represented; the specific publication and artwork class supersede them.",
+      "sources": [
+        {
+          "title": "Resolution and Size | IEEE Author Center Journals",
+          "url": "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/resolution-and-size/",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "File Formatting | IEEE Author Center Journals",
+          "url": "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/file-formatting/",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "Create Graphics for Your Article | IEEE Author Center Journals",
+          "url": "https://journals.ieeeauthorcenter.ieee.org/create-your-ieee-journal-article/create-graphics-for-your-article/",
+          "verified_on": "2026-08-27"
+        }
+      ],
+      "default_size": "single",
+      "size_presets": {
+        "single": {
+          "width_mm": 88.9,
+          "height_mm": 60.0,
+          "basis": "Official width; project default height"
+        },
+        "double": {
+          "width_mm": 182.0,
+          "height_mm": 110.0,
+          "basis": "Official width; project default height"
+        }
+      },
+      "max_height_mm": 220.0,
+      "font": {
+        "preferred": ["Arial", "Helvetica", "Times New Roman", "Cambria"],
+        "fallback": "DejaVu Sans",
+        "default_size_pt": 9.0,
+        "min_size_pt": 9.0,
+        "max_size_pt": 10.0,
+        "range_is_official": true
+      },
+      "png_dpi": 600,
+      "line_art_dpi": 600,
+      "dpi_is_official_minimum": false,
+      "color_space": "RGB",
+      "submission_formats": ["PS", "EPS", "PDF", "PNG", "TIFF"],
+      "variable_items": [
+        "Specific IEEE publication and template",
+        "Proceedings of the IEEE column exception",
+        "Color/grayscale versus black-and-white line art resolution",
+        "Conference-specific final submission rules"
+      ]
+    },
+    "acm": {
+      "display_name": "ACM submission profile",
+      "scope": "General ACM Primary Article Template/TAPS figures. Exact dimensions and production rules vary by publication and layout.",
+      "conflict_status": "Current ACM primary-template guidance is represented qualitatively; width, font, and DPI values below are project defaults that require target-venue verification.",
+      "sources": [
+        {
+          "title": "Submission Template for ACM Papers",
+          "url": "https://authors.acm.org/binaries/content/assets/publications/taps/acm_layout_submission_template.pdf",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "Best Practices for Submitting the LaTeX",
+          "url": "https://authors.acm.org/binaries/content/assets/publications/taps/latex-best_practices-06-may-2020.pdf",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "ACM Primary Article Template Instructions",
+          "url": "https://www.acm.org/binaries/content/assets/publications/taps/acm_primary_article_template_instructions.pdf",
+          "verified_on": "2026-08-27"
+        },
+        {
+          "title": "Describing Figures for ACM Publications",
+          "url": "https://www.acm.org/publications/taps/describing-figures/",
+          "verified_on": "2026-08-27"
+        }
+      ],
+      "default_size": "single",
+      "size_presets": {
+        "single": {
+          "width_mm": 84.5,
+          "height_mm": 60.0,
+          "basis": "Project default for a half-width figure in common ACM two-column output; verify the selected template"
+        },
+        "double": {
+          "width_mm": 177.8,
+          "height_mm": 105.0,
+          "basis": "Project default for a full-width figure in common ACM output; verify the selected template"
+        }
+      },
+      "max_height_mm": null,
+      "font": {
+        "preferred": ["Arial", "Helvetica"],
+        "fallback": "DejaVu Sans",
+        "default_size_pt": 8.0,
+        "min_size_pt": 7.0,
+        "max_size_pt": 10.0,
+        "range_is_official": false
+      },
+      "png_dpi": 300,
+      "line_art_dpi": 300,
+      "dpi_is_official_minimum": false,
+      "color_space": "RGB",
+      "submission_formats": ["PDF", "PNG", "EPS"],
+      "variable_items": [
+        "ACM publication and TAPS layout",
+        "Single-column review versus two-column publication output",
+        "Exact column width and raster resolution",
+        "Conference accessibility and camera-ready checklist"
+      ]
+    }
+  }
+}

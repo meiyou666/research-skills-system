@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "upstream_project": "No Negative Echo",
+  "upstream_copyright": "Copyright (c) 2026 LB623",
+  "upstream_repository": "https://github.com/LB623/no-negative-echo",
+  "upstream_repository_revision": "c771b7e6b0bd908c7690e401007a5044cbaf47e0",
+  "upstream_skill_baseline": "9e78138504905bd7c967ce3e2d9ae7cfa2aacdbf",
+  "license": "MIT",
+  "license_file": "LICENSE",
+  "verified_on": "2026-08-27",
+  "files": {
+    "SKILL.md": "adapted from the upstream core workflow and integrated as a horizontal research-artifact release gate",
+    "references/high-assurance-finalization.md": "adapted from the upstream high-assurance workflow",
+    "scripts/check_surface.py": {
+      "status": "unmodified upstream file",
+      "sha256": "d63a03fb1052706e1e5d1b23d413251dff5690e0c3e837c069826de6fe06661b"
+    },
+    "scripts/self_test.py": "original offline test for the retained scanner",
+    "agents/openai.yaml": "optional host interface metadata generated for this distribution"
+  },
+  "omitted_upstream_files": [
+    "assets/decision-boundary.png",
+    "assets/icon-400.png",
+    "assets/icon.png",
+    ".no-negative-echo-provenance.json"
+  ]
+}
