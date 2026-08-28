@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "verified_on": "2026-08-27",
+  "verified_on": "2026-08-28",
   "profiles": [
     {
       "type": "crossref",
@@ -71,7 +71,7 @@
       "authentication": "public feeds by default; no cookie or interactive-login flow",
       "supported_features": ["RSS", "Atom", "GUID identity", "incremental refresh", "optional query filter"],
       "license_or_terms": "feed and linked-content terms are source-specific; summary retention is opt-in",
-      "test_status": "offline Atom parser, no-summary default, dedupe, and refresh paths passed",
+      "test_status": "offline Atom parser, no-summary default, dedupe, and refresh paths passed; 2026-08-28 pinned RSSHub local test route reached its configured five-candidate limit, validated with limited/candidates_with_gaps status and a limit warning",
       "degradation": "task-local failure; existing observations remain available"
     },
     {
@@ -83,7 +83,7 @@
       "authentication": "endpoint-specific; bundled connector does not implement cookies or login",
       "supported_features": ["query", "language", "categories", "result paging", "engine provenance"],
       "license_or_terms": "SearXNG is AGPL-3.0-or-later; underlying engine terms and enabled output formats still apply",
-      "test_status": "client parsing and failure isolation covered through offline fixtures; no SearXNG service exercised",
+      "test_status": "offline client parsing and failure isolation passed; 2026-08-28 pinned local service passed health, JSON, connector, and campaign validation, while attempted upstream engines failed or timed out and produced zero candidates",
       "degradation": "task-local failure; structured-source connectors continue"
     },
     {
@@ -95,7 +95,7 @@
       "authentication": "existing gh state or caller-controlled credential environment variable; adapter never logs in",
       "supported_features": ["repository search", "code search", "issue and PR search", "commit search", "release listing"],
       "license_or_terms": "gh is MIT; GitHub API terms, repository licenses, privacy, and rate limits apply",
-      "test_status": "argument construction, normalized records, byte cap, and missing-executable failure are covered offline; live authenticated API not exercised",
+      "test_status": "offline argument construction, normalized records, byte cap, and missing-executable failure passed; 2026-08-28 checksum-verified gh 2.98.0 authenticated API produced three repository candidates through a validated bounded campaign",
       "degradation": "task-local failure; no interactive authentication is attempted"
     },
     {

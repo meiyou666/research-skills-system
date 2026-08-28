@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-Verified on 2026-08-27. This file records material redistributed from another project, provenance-limited supplied material, and software invoked at runtime. It does not assign a project-wide license to this repository.
+Verified through 2026-08-28. This file records material redistributed from another project, provenance-limited supplied material, and software invoked at runtime. It does not assign a project-wide license to this repository.
 
 ## Redistributed upstream material
 
@@ -58,11 +58,13 @@ GPU drivers, runtimes, compilers, profilers, container engines, SSH clients, and
 | PubMed / NCBI E-utilities | Biomedical identifiers and summary metadata | [NCBI policies and copyright guidance](https://www.ncbi.nlm.nih.gov/home/about/policies/), [E-utilities usage requirements](https://www.ncbi.nlm.nih.gov/books/NBK25497/) | PubMed abstracts may be copyrighted and are not collected; users of downstream software must retain the required NCBI disclaimer/copyright notice |
 | Europe PMC REST API | Life-science metadata, citation relations, and open-access locators | [Developer access methods](https://europepmc.org/developers), [copyright notice](https://europepmc.org/Copyright) | Full-text and supplementary-content rights vary by article; the connector does not infer reuse permission from a search hit |
 
+On 2026-08-28, pinned SearXNG and RSSHub source installations plus a checksum-verified GitHub CLI release were exercised from the Git-ignored `.runtime/` directory. Those source archives, dependencies, binaries, service configurations, logs, and campaign outputs are local runtime state and are not redistributed by this repository. Exact revisions, checksums, test scope, resource observations, and limitations are recorded in [`docs/third-party-search-runtime.md`](docs/third-party-search-runtime.md).
+
 ## Reviewed collection candidates not used as dependencies
 
 The following projects informed interface and risk decisions but are neither bundled nor invoked by the repository:
 
-| Project | Official license/status source | Decision recorded on 2026-08-27 |
+| Project | Official license/status source | Decision verified through 2026-08-28 |
 | --- | --- | --- |
 | MediaCrawler | [NON-COMMERCIAL LEARNING LICENSE 1.1](https://github.com/NanmiCoder/MediaCrawler/blob/main/LICENSE), [official repository](https://github.com/NanmiCoder/MediaCrawler) | Not adopted: the license limits purpose and explicitly restricts large-scale crawling; account, cookie, proxy, and platform authorization remain outside this repository |
 | Crawl4AI | [repository LICENSE](https://github.com/unclecode/crawl4ai/blob/main/LICENSE), [security advisories](https://github.com/unclecode/crawl4ai/security) | No adapter or code included: the license adds a project-specific attribution requirement after the Apache-2.0 text, and browser/server extraction needs a separately reviewed, pinned, isolated deployment |

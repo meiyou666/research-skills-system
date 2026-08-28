@@ -1,6 +1,6 @@
 # Connector Catalog and Adoption Decisions
 
-Verified 2026-08-27 from the official pages linked below. The machine-readable runtime view is [`connector_profiles.json`](connector_profiles.json). Service limits and terms can change; recheck them before a large or authenticated campaign.
+Verified through 2026-08-28 from the official pages linked below. The machine-readable runtime view is [`connector_profiles.json`](connector_profiles.json). Service limits and terms can change; recheck them before a large or authenticated campaign.
 
 ## Bundled scholarly connectors
 
@@ -97,4 +97,4 @@ The hermetic suite exercises canonicalization, DOI/GitHub/arXiv identities, dedu
 
 A fresh forward harness also exercised 606 mixed-language candidates, bounded interruption and resume, strict concurrent discovery/fetch response budgets, package-watermark reporting, six simulated `gh` resource paths, loopback Atom refresh, relation expansion, partial content, a single failed connector, an all-failed campaign, and manifest/snapshot/SQLite tampering. These are interface and state tests, not evidence of live API compatibility or million-record performance.
 
-Crossref and OpenAlex each received one explicitly enabled three-item online attempt on 2026-08-27. Both campaign packages and validators completed, but the endpoints returned no records because this execution environment ended the connections (`SSLEOFError` and `ConnectionResetError`). This is recorded as an access gap, not a core self-test failure. arXiv, Europe PMC, PubMed, a live RSS feed, SearXNG, and authenticated `gh` were not exercised online. No claim of exhaustive source or literature coverage is made.
+Crossref and OpenAlex each received one explicitly enabled three-item online attempt on 2026-08-27. Both campaign packages and validators completed, but the endpoints returned no records because this execution environment ended the connections (`SSLEOFError` and `ConnectionResetError`). This is recorded as an access gap, not a core self-test failure. On 2026-08-28, an authenticated, checksum-verified `gh 2.98.0` binary returned three bounded repository candidates through the real connector; a pinned RSSHub build reached its configured five-candidate limit on the official local test route and reported `limited` / `candidates_with_gaps`; and a pinned SearXNG instance passed health, JSON, connector, and package validation while its attempted upstream engines all failed or timed out, yielding zero candidates. arXiv, Europe PMC, and PubMed remain offline-fixture-only here. Details and runtime boundaries are in [`../../../docs/third-party-search-runtime.md`](../../../docs/third-party-search-runtime.md). No claim of exhaustive source or literature coverage is made.

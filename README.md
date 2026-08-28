@@ -62,6 +62,6 @@ Each `SKILL.md` provides the shortest useful path. Detailed references are loade
 
 ## Sources and licensing
 
-The primary-source survey and adoption decisions are recorded in [`docs/open-source-skill-landscape.md`](docs/open-source-skill-landscape.md). Redistributed third-party material and optional runtime dependencies are recorded in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+The primary-source survey and adoption decisions are recorded in [`docs/open-source-skill-landscape.md`](docs/open-source-skill-landscape.md). The reviewed native installation and bounded smoke-test evidence for SearXNG, RSSHub, and GitHub CLI is recorded in [`docs/third-party-search-runtime.md`](docs/third-party-search-runtime.md). Redistributed third-party material and optional runtime dependencies are recorded in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
 The repository currently has no project-wide license. The nested MIT license in `skills/no-negative-echo/` applies to the upstream-derived material identified by that skill's notice and provenance records.
